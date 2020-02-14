@@ -1,5 +1,5 @@
 // load in csv
-d3.csv("../../data/Data73200_Tutorial1.csv").then(data => {
+d3.csv("Data73200_Tutorial1.csv").then(data => {
     // once the data loads, console log it
     console.log("data", data);
   
