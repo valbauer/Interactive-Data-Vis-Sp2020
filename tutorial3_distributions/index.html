@@ -2,11 +2,16 @@
   <head>
     <meta charset="utf-8">
     <title>Interactive Data Visualization Tutorial</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+    
   </head>
   <body>
-    Welcome to Interactive Data Visualization Tutorials
+    <label for="dropdown">Borough</label>
+    <select id="dropdown" name="dropdown"></select>
+    <div id="d3-container"> </div>
     <script src="../lib/d3.js"></script>
     <script src="main.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
   </body>
 </html>
