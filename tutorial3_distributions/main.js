@@ -1,7 +1,7 @@
 /* CONSTANTS AND GLOBALS */
 const width = window.innerWidth * 0.9,
   height = window.innerHeight * 0.7,
-  margin = { top: 20, bottom: 70, left: 90, right: 40 },
+  margin = { top: 20, bottom: 70, left: 70, right: 40 },
   radius = 5;
 
 // these variables allow us to access anything we manipulate in init() but need access to in draw().
@@ -39,9 +39,6 @@ function init() {
     .domain(d3.extent(state.data, d => d["Percent Registered Voters"]))
     .range([height - margin.bottom, margin.top]);
 
-  boroColor = d3.scaleOrdinal()
-    .domain(d => d["Boro"])
-    .range(d3.schemeDark2);
 
   // + AXES
   const xAxis = d3.axisBottom(xScale);
@@ -95,7 +92,7 @@ function init() {
     .attr("y", "50%")
     .attr("dx", "-3em")
     .attr("writing-mode", "vertical-rl")
-    //.attr("transform", "rotate(180deg)")
+    //.attr("transform", "rotate(180deg)") // Figure out how to rotate axis label
     .text("Percent of Registered Voters");
 
   draw(); // calls the draw function
@@ -109,29 +106,36 @@ function draw() {
   let filteredData = state.data;
 
   if (state.selectedBoro !== "NYC") {
-    filteredData = state.data.filter(d => d.boro === state.selectedBoro);
+    filteredData = state.data.filter(d => d["Boro"] === state.selectedBoro);
   }
 
    const dot = svg
      .selectAll("circle")
-     .data(filteredData, d => d.boro)
+     .data(filteredData, d => d.name) // Why does it have to be d.name? 
      .join(
        enter => 
         enter
           .append("circle")
           .attr("class", "dot") // Note: this is important so we can identify it in future updates
-          .attr("stroke", "lightgrey")
-          .attr("opacity", 0.5)
-          .attr("fill", function(d){return boroColor(d)})
+          .attr("stroke", "black")
+          .attr("opacity", 0.75)
+          .attr("fill", d => {
+            if (d["Boro"] === "Brooklyn") return "#1b9e77";
+            else if (d["Boro"] === "Bronx") return "#d95f02";
+            else if (d["Boro"] === "Manhattan") return "#7570b3";
+            else if (d["Boro"] === "Staten Island") return "#e7298a";
+            else return "#66a61e";
+
+          })
           .attr("r", radius)
-          .attr("cy", d => yScale(d["Percent Registered Voters"]))
-          .attr("cx", d => margin.left) // initial value - to be transitioned
+          .attr("cy", margin.top)
+          .attr("cx", d => xScale(d["Percent Population Over 18 Under 100% Poverty Level"]))//margin.left) // initial value - to be transitioned
           .call(enter =>
             enter
               .transition() // initialize transition
-              .delay(d => 500 * d["Percent Population Over 18 Under 100% Poverty Level"]) // delay on each element
+              .delay((d,i) => i*5) // delay on each element
               .duration(500) // duration 500ms
-              .attr("cx", d => xScale(d["Percent Population Over 18 Under 100% Poverty Level"]))
+              .attr("cy", d => yScale(d["Percent Registered Voters"]))
           ), // + HANDLE ENTER SELECTION
        update => 
         update.call(update =>
@@ -149,9 +153,9 @@ function draw() {
         // exit selections -- all the `.dot` element that no longer match to HTML elements
          exit
            .transition()
-           .delay(d => 50 * d["Percent Population Over 18 Under 100% Poverty Level"])
+           .delay((d,i) => i*5)
            .duration(500)
-           .attr("cx", width)
+           .attr("cy", height - margin.bottom)
            .remove()
       ) // + HANDLE EXIT SELECTION
      );
