@@ -111,7 +111,7 @@ function draw() {
 
    const dot = svg
      .selectAll("circle")
-     .data(filteredData, d => d.name) // Why does it have to be d.name? 
+     .data(filteredData, d => d["NTA"]) // Why does it have to be d.name? 
      .join(
        enter => 
         enter
@@ -144,9 +144,9 @@ function draw() {
             .transition()
             .duration(250)
             .attr("stroke", "black")
-            .transition()
-            .duration(250)
-            .attr("stroke", "lightgrey")
+            //.transition()
+            //.duration(250)
+            //.attr("stroke", "lightgrey")
       ), // + HANDLE UPDATE SELECTION
        exit => 
         exit.call(exit =>
