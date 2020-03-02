@@ -1,6 +1,6 @@
 body {
     font-family: "Raleway"; 
-    padding: 1em 3em;
+    padding: 1em 4em;
   }
 
 .axis-label {
@@ -24,12 +24,34 @@ body {
 
 .area {
   fill: #B7D0DB;
-  opacity: .5
+  opacity: .75
 }
 
 .dot {
   fill: #136388;
 }
 
+/*I could not get a legend to work :(
+/* .lineMax {
+  width: 40px;
+  height: 2px;
+  border-bottom: 2px solid #136388;
+  position: relative;
+}
 
+.lineMax text {
+text-align: left;
+}
 
+.lineMin {
+  width: 40px;
+  height: 2px;
+  border-bottom: 2px solid #8F3FA0;
+  position: relative;
+  padding: 1em 4em;
+
+}
+
+.dropdownLegend {
+  padding: 1em;
+} */
