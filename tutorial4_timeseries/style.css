@@ -1,0 +1,35 @@
+body {
+    font-family: "Raleway"; 
+    padding: 1em 3em;
+  }
+
+.axis-label {
+    font-family: "Raleway";
+    font-size: 14px;
+    fill: black;
+    text-anchor: middle;
+  }
+
+.trendMax {
+  fill: none;
+  stroke: #136388;
+  stroke-width: 2px;
+}
+
+.trendMin {
+  fill: none;
+  stroke: #8F3FA0;
+  stroke-width: 2px;
+}
+
+.area {
+  fill: #B7D0DB;
+  opacity: .5
+}
+
+.dot {
+  fill: #136388;
+}
+
+
+
