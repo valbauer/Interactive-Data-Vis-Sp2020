@@ -1,7 +1,7 @@
 /* CONSTANTS AND GLOBALS */
 const width = window.innerWidth * 0.8,
   height = window.innerHeight * 0.7,
-  margin = { top: 20, bottom: 50, left: 20, right: 40 },
+  margin = { top: 20, bottom: 50, left: 25, right: 30 },
   radius = 3;
 
 // these variables allow us to access anything we manipulate in init() but need access to in draw().
@@ -101,7 +101,7 @@ function init() {
    .append("text")
    .attr("class", "axis-label")
    .attr("y", "50%")
-   .attr("dx", "51.5em")
+   .attr("dx", "51.1em")
    .attr("writing-mode", "vertical-rl")
    .text("Temperature (F)");
 
