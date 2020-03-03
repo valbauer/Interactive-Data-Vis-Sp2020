@@ -114,7 +114,7 @@ function init() {
   }); 
 
   draw(); // calls the draw function
-}
+};
 
 /**
  * DRAW FUNCTION
@@ -152,4 +152,4 @@ function draw() {
           : null // otherwise, show nothing
   );
   
-}
+};
