@@ -9,7 +9,6 @@ const width = window.innerWidth * 0.9,
 let svg;
 let xScale;
 let yScale;
-let boroColors;
 
 /* APPLICATION STATE */
 let state = {
@@ -144,9 +143,7 @@ function draw() {
             .transition()
             .duration(250)
             .attr("stroke", "black")
-            //.transition()
-            //.duration(250)
-            //.attr("stroke", "lightgrey")
+          
       ), // + HANDLE UPDATE SELECTION
        exit => 
         exit.call(exit =>
