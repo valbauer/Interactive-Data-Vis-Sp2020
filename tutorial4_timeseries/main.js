@@ -100,7 +100,7 @@ function init() {
    .append("text")
    .attr("class", "axis-label")
    .attr("y", "50%")
-   .attr("dx", "-3em")
+   .attr("dx", "-1em")
    .attr("writing-mode", "vertical-rl")
    .text("Temperature (F)");
 
