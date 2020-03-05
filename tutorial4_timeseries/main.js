@@ -49,8 +49,7 @@ function init() {
   
   // + AXES
   xAxis = d3.axisBottom(xScale);
-  yAxis = d3.axisRight(yScale)
-      .tickSize(width - margin.left - margin.right);
+  yAxis = d3.axisRight(yScale).tickSize(width - margin.left - margin.right);
 
   // + UI ELEMENT SETUP
 
