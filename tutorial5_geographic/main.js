@@ -72,9 +72,6 @@ function init() {
       draw(); // re-call the draw function when we set a new hoveredState
     });
 
-  // + DRAW BASE MAP PATH
-  //console.log(d3.max(state.extremes, d => d["Change in 95 percent Days"]))
-  
   const radiusScale = d3
     .scaleSqrt()
     .domain([0, 55])
@@ -101,7 +98,7 @@ function init() {
       // when the mouse rolls over this feature, do this
       state.extremesHover["Change in 95 percent Days"] = d["Change in 95 percent Days"];
       draw();
-    })
+    });
 
   svg.on("mousemove", () => {
     // we can use d3.mouse() to tell us the exact x and y positions of our cursor

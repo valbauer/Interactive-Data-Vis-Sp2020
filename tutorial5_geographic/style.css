@@ -3,11 +3,6 @@ body {
     font-family: "Source Sans Pro", sans-serif;
     padding: 1em 3em;
   }
-  
-#tooltip {
-    display: block;
-    height: 50px;
-}
 
 path.state {
     fill: lightgray;
