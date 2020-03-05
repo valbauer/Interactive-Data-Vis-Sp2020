@@ -49,7 +49,7 @@ function init() {
   
   // + AXES
   xAxis = d3.axisBottom(xScale);
-  yAxis = d3.axisRight(yScale).tickSize(width - margin.left - margin.right);
+  yAxis = d3.axisRight(yScale);//.tickSize(width - margin.left - margin.right);
 
   // + UI ELEMENT SETUP
 
@@ -100,7 +100,7 @@ function init() {
    .append("text")
    .attr("class", "axis-label")
    .attr("y", "50%")
-   .attr("dx", "51.1em")
+   .attr("dx", "-3em")
    .attr("writing-mode", "vertical-rl")
    .text("Temperature (F)");
 
@@ -242,4 +242,4 @@ function draw() {
       .attr("d", d => areaFunc(d))
   );
 
-}
+};
